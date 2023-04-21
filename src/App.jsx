@@ -19,12 +19,20 @@ const movies = [
   },
 ];
 
+// DRY
+
 export default function App() {
 
   return (
     <>
     <div className='card-container'>
-        <Card />
+      {/* วน render card ออกมาตามจำนวนของที่อยู่ใน array */}
+      {movies.map((ele) => 
+       // eslint-disable-next-line react/jsx-key
+        <Card key={ele.title} title={ele.title} 
+       image={ele.image} />
+      // <Card key={ele.title} movieData={ele} />
+      )}
     </div>
     </>
   );
