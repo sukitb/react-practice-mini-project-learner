@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import "./Card.css";
 
 // eslint-disable-next-line no-unused-vars
-export default function Card({title, image}) {
-
+export default function Card({title, image, handleClick}) {
 
   return (
     <div className="movie-card">
@@ -17,8 +17,11 @@ export default function Card({title, image}) {
           {title} <br />
           <span style={{ fontSize: "25px" }}>&#9989;</span>
         </h2>
-        <button className="movie-card__btn">เลือก</button>
+        {/* onClick คือ eventlistener */}
+        <button onClick={() => {
+          handleClick(title)
+        }} className="movie-card__btn">เลือก</button>
       </div>
     </div>
-  );
+  ); 
 }
